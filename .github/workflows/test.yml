@@ -21,5 +21,3 @@ jobs:
       # 実行
       - name: Run
         run: go run main.go
-        env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
