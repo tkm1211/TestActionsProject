@@ -4,10 +4,22 @@ on:
   pull_request:
 
 jobs:
-  test:
-    name: Test
+  run:
+    name: run
     runs-on: ubuntu-latest
-    
     steps:
-      - uses: actions/checkout@v2
-      
+      # GOPATH等のセットアップ
+      - name: Set Up
+        uses: actions/setup-go@v2
+        with:
+          go-version: ~1.15
+
+      # repositoryの中身にアクセスするためにチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # 実行
+      - name: Run
+        run: go run main.go
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
