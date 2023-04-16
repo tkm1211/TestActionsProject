@@ -5,7 +5,7 @@ on:
 
 jobs:
   run:
-    name: run
+    name: Test
     runs-on: ubuntu-latest
     steps:
       # GOPATH等のセットアップ
